@@ -1,0 +1,17 @@
+body {
+  font-family: var(--ff);
+	font-size: var(--fs-regular);
+	color: var(--clr-neutral-gray);
+}
+
+h1, h2, h3 {
+	color: var(--clr-primary-dark-violet);
+}
+
+a {
+	color: inherit;
+}
+
+.text-white {
+	color: var(--clr-white);
+}
