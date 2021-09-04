@@ -1,0 +1,50 @@
+@use ".././../abstracts/mixins" as *;
+
+.intro {
+  .container {
+		// display: flex;
+		// flex-direction: column-reverse;
+		// justify-content: center;
+		// align-items: center;
+		// overflow: hidden;
+
+
+		@include xlargescreen {
+			display: flex;
+			flex-direction: row-reverse;
+			align-items: center;
+			justify-content: center;
+			gap: 4rem;
+			margin-top: 3rem;
+		}
+	}
+
+	&-left {
+		--flow-spacer: 1.5rem;
+		text-align: center;
+		margin-top: 3rem;
+
+		@include xlargescreen {
+			text-align: left;
+		}
+	}
+
+	&-right {
+		img {
+			width: 150%;
+			max-width: none;
+		}
+	}
+
+	&__info {
+		margin-top: 0.75rem;
+
+		@include xlargescreen {
+			font-size: 1.5rem;
+		}
+	}
+
+	.btn {
+		margin-top: 1.5rem;
+	}
+}

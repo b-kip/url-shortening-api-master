@@ -46,44 +46,47 @@
   <main>
     <section class="intro">
       <div class="container">
+        <div class="intro-right">
+          <img src="../images/illustration-working.svg" alt="work illustration">
+        </div>
         <div class="intro-left">
           <h1 class="intro__title">More than just shorter links</h1>
           <p class="intro__info">Build your brand’s recognition and get detailed insights 
-            on how your links are performing.</p>
-            <button class="btn btn--accent">Get Started</button>
-        </div>
-        <div class="intro-right">
-          <img src="../images/illustration-working.svg" alt="work illustration">
+          on how your links are performing.</p>
+          <button class="btn btn--accent">Get Started</button>
         </div>
       </div>
     </section>
 
-    <section class="main-content">
+    <section class="page-content">
       <div class="container">
         <form class="shortening-form">
-          <input type="text" placeholder="Shorten a link here...">
-          <input type="button" value="Shorten It!">
+          <div>
+            <input class="url-input" type="text" placeholder="Shorten a link here...">
+            <p class="error-message">Please add a link</p>
+          </div>
+          <input type="button" value="Shorten It!" class="btn--accent btn-form-btn">
         </form>
         <section class="shortening-results">
           <ul class="shorteninig-results__list">
             <li class="shortening-results__list__item">
-              <p>https://www.frontendmentor.io</p>
+              <p class="input-url">https://www.frontendmentor.io</p>
               <div>
-                <p>https://rel.ink/k4lKyk</p>
+                <p class="output-url">https://rel.ink/k4lKyk</p>
                 <button class="btn btn--radius-small btn--accent">Copy</button>
               </div>
             </li>
             <li class="shortening-results__list__item">
-              <p>https://twitter.com/frontendmentor</p>
+              <p class="input-url">https://twitter.com/frontendmentor</p>
               <div>
-                <p>https://rel.ink/gxOXp9</p>
+                <p class="output-url">https://rel.ink/gxOXp9</p>
                 <button class="btn btn--radius-small btn--dark ">Copied</button>
               </div>
             </li>
             <li class="shortening-results__list__item">
-              <p>https://www.linkedin.com/company/frontend-mentor</p>
+              <p class="input-url">https://www.linkedin.com/company/frontend-mentor</p>
               <div>
-                <p>https://rel.ink/gob3X9</p>
+                <p class="output-url">https://rel.ink/gob3X9</p>
                 <button class="btn">Copy</button>
               </div>
             </li>

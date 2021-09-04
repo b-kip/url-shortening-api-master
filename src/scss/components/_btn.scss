@@ -1,13 +1,14 @@
 .btn {
-    padding: 0.35rem 2rem;
-    color: var(--clr-white);
-    border-radius: 100vh;
+  padding: 0.75rem 2.5rem;
+  border-radius: 100vh;
+  cursor: pointer;
 }
 
 .btn--accent {
-    background-color: var(--clr-primary-cyan);
+  color: var(--clr-white);
+  background-color: var(--clr-primary-cyan);
 }
 
 .btn--transparent {
-    // color: var(--clr-white);
+  // color: var(--clr-white);
 }

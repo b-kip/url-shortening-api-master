@@ -1,3 +1,5 @@
+@use '../abstracts/mixins' as *;
+
 body {
   font-family: var(--ff);
 	font-size: var(--fs-regular);
@@ -6,6 +8,15 @@ body {
 
 h1, h2, h3 {
 	color: var(--clr-primary-dark-violet);
+}
+
+h1 {
+	font-size: 2.75rem;
+	line-height: 1.1;
+
+	@include xlargescreen {
+		font-size: 4.75rem;
+	}
 }
 
 a {
