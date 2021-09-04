@@ -12,3 +12,11 @@
 .btn--transparent {
   // color: var(--clr-white);
 }
+
+.btn--radius-small {
+  border-radius: 0.25rem;
+}
+
+.btn--dark {
+  background-color: var(--clr-primary-dark-violet);
+}

@@ -1,13 +1,84 @@
+@use '../../../abstracts/mixins' as *;
+
 .shortening-results {
-	margin-top: 4rem;
+	margin-top: 6rem;
 	&__list {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+
 		&__item {
+			background-color: var(--clr-white);
+			padding: 1rem;
+			border-radius: 0.25rem;
+			font-weight: 500;
+			font-size: 1rem;
+
+			display: flex;
+			flex-direction: column;
+			gap: 0.75rem;
+
+			@include xlargescreen {
+				flex-direction: row;
+				align-items: center;
+				justify-content: space-between;
+				font-size: 1.25rem;
+			}
+
 			.input-url {
-
+				color: var(--clr-primary-dark-violet);
+				text-overflow: ellipsis;
+				overflow: hidden;
+				white-space: nowrap;
 			}
-			.output-url {
+			.output {
+				&-container {
+					padding-top: 1rem;
+					position: relative;
 
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					// align-items: center;
+					gap: 1rem;
+
+					@include xlargescreen {
+						flex-direction: row;
+						align-items: center;
+						padding-top: 0;
+						gap: 2rem;
+					}
+
+					&::before {
+						content: '';
+						position: absolute;
+						width: calc(100% + 2rem);
+						height: 2px;
+						top: 0;
+						left: 50%;
+						transform: translateX(-50%);
+						background-color: #f2f1f3;
+
+						@include xlargescreen {
+							display: none;
+						}
+					}
+					
+					.btn {
+						padding: 0.5rem 0;
+
+						@include xlargescreen {
+							width: 8rem;
+						}
+					}
+				}
+
+				&-url {
+					color: var(--clr-primary-cyan);
+					
+				}
 			}
+			
 		}
 	}
 }
