@@ -1,0 +1,25 @@
+@use '../../abstracts/mixins' as *;
+
+.call-to-action {
+	text-align: center;
+	background-color: var(--clr-primary-dark-violet);
+	background-image: url('../../images/bg-boost-mobile.svg');
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	@include xlargescreen {
+		background-image: url('../../images/bg-boost-desktop.svg')
+	}
+
+	.container {
+		padding: 6rem 0;
+
+		@include xlargescreen {
+			padding: 3.85rem 0;
+		}
+	}
+
+	&__message {
+		color: inherit;
+	}
+}
