@@ -3,6 +3,10 @@
     margin: 0 1.25rem;
     max-width: 74rem;
     
+    @include largescreen {
+        margin: 0 5rem;
+    }
+
     @include xlargescreen {
         margin: 0 auto;
     }
