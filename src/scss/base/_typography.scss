@@ -14,8 +14,11 @@ h1 {
 	font-size: 2.75rem;
 	line-height: 1.1;
 
+	@media (min-width: 925px) {
+		font-size: clamp(2.75rem, 5.15vw, 4.75rem)
+	}
 	@include xlargescreen {
-		font-size: 4.75rem;
+		// font-size: 4.75rem;
 	}
 }
 

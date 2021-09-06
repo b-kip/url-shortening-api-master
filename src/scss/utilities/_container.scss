@@ -1,17 +1,18 @@
 @use '../abstracts/mixins' as *;
 .container {
     margin: 0 1.25rem;
-    max-width: 74rem;
     
     @include smallscreen {
         margin: 0 3.25rem;
     }
-
+    
     @include mediumscreen {
         margin: 0 5rem;
     }
-
+    
     @include xlargescreen {
+        width: 90%;
+        max-width: 72rem;
         margin: 0 auto;
     }
 }

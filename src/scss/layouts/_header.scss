@@ -11,7 +11,7 @@
 		color: var(--clr-neutral-grayish-violet);
 		font-weight: 500;
 
-		@include xlargescreen {
+		@media (min-width: 925px) {
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -23,7 +23,7 @@
 			justify-content: space-between;
 			align-items: center;
 
-			@include xlargescreen {
+			@media (min-width: 925px) {
 				margin-top: 6px;
 
 				.hamburger {
@@ -45,7 +45,7 @@
 			flex-direction: column;
 			gap: 2rem;
 
-			@include xlargescreen {
+			@media (min-width: 925px) {
 				position: relative;
 				flex-direction: row;
 				justify-content: space-between;
@@ -60,7 +60,7 @@
 			&.hidden {
 				display: none;
 
-				@include xlargescreen {
+				@media (min-width: 925px) {
 					display: flex;
 				}
 			}
@@ -73,7 +73,7 @@
 			align-items: center;
 			gap: 1.5rem;
 
-			@include xlargescreen {
+			@media (min-width: 925px) {
 				flex-direction:row;
 				gap: 2rem;
 			}
@@ -92,7 +92,7 @@
 			padding-top: 1.5rem;
 			border-top: 0.5px solid rgb(158 154 167 / 0.25);
 
-			@include xlargescreen {
+			@media (min-width: 925px) {
 				padding: 0;
 				border: none;
 				flex-direction: row;
