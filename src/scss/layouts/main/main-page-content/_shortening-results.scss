@@ -2,10 +2,15 @@
 
 .shortening-results {
 	margin-top: 6rem;
+
+	// @include xlargescreen {
+	@media (min-width: 1000px) {
+		margin-top: 7rem;
+	}
 	&__list {
 		display: flex;
 		flex-direction: column;
-		gap: 1rem;
+		gap: 1.5rem;
 
 		&__item {
 			background-color: var(--clr-white);
@@ -18,10 +23,15 @@
 			flex-direction: column;
 			gap: 0.75rem;
 
-			@include xlargescreen {
+			@include largescreen {
+			// @media (min-width: 1000px) {
+				// @media (min-width: 925px) {
 				flex-direction: row;
 				align-items: center;
 				justify-content: space-between;
+			}
+			
+			@include xlargescreen {
 				font-size: 1.25rem;
 			}
 
@@ -42,7 +52,9 @@
 					// align-items: center;
 					gap: 1rem;
 
-					@include xlargescreen {
+					@include largescreen {
+					// @media (min-width: 1000px) {
+					// @include largescreen
 						flex-direction: row;
 						align-items: center;
 						padding-top: 0;
@@ -59,7 +71,8 @@
 						transform: translateX(-50%);
 						background-color: #f2f1f3;
 
-						@include xlargescreen {
+						@include largescreen {
+						// @media (min-width: 1000px) {
 							display: none;
 						}
 					}
@@ -67,7 +80,8 @@
 					.btn {
 						padding: 0.5rem 0;
 
-						@include xlargescreen {
+						@include largescreen {
+						// @media (min-width: 1000px) {
 							width: 8rem;
 						}
 					}
