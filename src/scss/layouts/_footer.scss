@@ -61,6 +61,13 @@
 		&__container {
 			--flow-spacer: 0.75rem;
 			margin-top: 1.5rem !important;
+
+			a {
+				&:focus,
+				&:hover {
+					color: var(--clr-primary-cyan);
+				}
+			}
 		}
   }
   &__social-links {
@@ -69,6 +76,13 @@
 		justify-content: center;
 		align-items: center;
 		gap: 1.5rem;
+
+		a {
+			&:focus path,
+			&:hover path {
+				fill: var(--clr-primary-cyan);
+			}
+		}
 
 		@include mediumscreen {
 			width: 100%;

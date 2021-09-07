@@ -2,15 +2,29 @@
   padding: 0.75rem 2.5rem;
   border-radius: 100vh;
   cursor: pointer;
+  
+  &:hover,
+  &:focus {
+    opacity: 0.5;
+  }
 }
+
 
 .btn--accent {
   color: var(--clr-white);
   background-color: var(--clr-primary-cyan);
+
+  // &:hover,
+  // &:focus {
+  //   background-color: rgb(42 207 207 / 0.5)
+  // }
 }
 
 .btn--transparent {
-  // color: var(--clr-white);
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
 }
 
 .btn--radius-small {

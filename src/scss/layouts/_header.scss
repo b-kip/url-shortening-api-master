@@ -79,6 +79,10 @@
 			}
 
 			&__item {
+				&:focus,
+				&:hover {
+					color: var(--clr-neutral-dark-violet);
+				}
 				a {
 					display: block;
 				}
