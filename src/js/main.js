@@ -35,6 +35,7 @@ form.addEventListener('submit', function(event){
     // input validation
     // empty url
     if( !urlInput.value ) {
+        errorContainer.innerText = "Please add a link";
         form.classList.add('error');
         return;
     }
