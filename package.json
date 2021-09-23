@@ -1,26 +1,41 @@
 {
-  "name": "url-shortening-api-master",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "cleanup": "rm -rf .cache dist",
-    "dev": "npm run cleanup && parcel src/index.html",
-    "build": "parcel build --no-minify src/index.html",
-    "watch": "parcel watch src/index.html"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "name": "url-shortener",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "parcel-bundler": "^1.12.5",
-    "sass": "^1.39.0"
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.1.2"
   },
-  "browserslist": [
-    "last 3 and_chr versions",
-    "last 3 chrome versions",
-    "last 3 opera versions",
-    "last 3 ios_saf versions",
-    "last 3 safari versions"
-  ]
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "sass": "^1.42.1"
+  }
 }

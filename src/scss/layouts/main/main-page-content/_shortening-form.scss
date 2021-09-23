@@ -3,7 +3,7 @@
   background-color: var(--clr-primary-dark-violet);
   padding: 1.5rem;
   border-radius: 0.5rem;
-  background-image: url("../../images/bg-shorten-mobile.svg");
+  background-image: url("../../../../assets/images/bg-shorten-mobile.svg");
   background-repeat: no-repeat;
   background-position: top -0.85rem right;
 
@@ -23,7 +23,7 @@
 	@media (min-width: 650px) {
 		flex-direction: row;
 		padding: 2.5rem;
-		background-image: url('../../images/bg-shorten-desktop.svg');
+		background-image: url('../../../../assets/images/bg-shorten-desktop.svg');
 		background-position: inherit;
 		background-size: cover;
 	}

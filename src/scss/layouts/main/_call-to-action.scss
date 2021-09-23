@@ -3,12 +3,12 @@
 .call-to-action {
 	text-align: center;
 	background-color: var(--clr-primary-dark-violet);
-	background-image: url('../../images/bg-boost-mobile.svg');
+	background-image: url('../../../assets/images/bg-boost-mobile.svg');
 	background-repeat: no-repeat;
 	background-size: cover;
 
 	@include smallscreen {
-		background-image: url('../../images/bg-boost-desktop.svg')
+		background-image: url('../../../assets/images/bg-boost-desktop.svg')
 	}
 
 	.container {
