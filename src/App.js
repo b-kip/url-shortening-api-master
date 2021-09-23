@@ -6,9 +6,13 @@ import detailedRecord from './assets/images/icon-detailed-records.svg';
 import brandRecognition from './assets/images/icon-brand-recognition.svg';
 import fullCustomization from './assets/images/icon-fully-customizable.svg';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 
 function App() {
+  useEffect(() => {
+    import('./js/main');
+  });
+
   return (
     <div className="App">
       <header className="header">
