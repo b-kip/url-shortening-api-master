@@ -3,7 +3,7 @@ const navbar_bottom = document.querySelector("#js-navbar-bottom");
 const form = document.querySelector('.shortening-form');
 const urlInput = form.elements["url"];
 const resultsList = document.querySelector(".shortening-results__list");
-const resultsSection = document.querySelector(".shortening-results");
+// const resultsSection = document.querySelector(".shortening-results");
 
 const errorContainer = document.querySelector(".error-message");
 
@@ -29,6 +29,7 @@ form.addEventListener('submit', function(event){
 
     // removing error state if there was an error previously.
     if(form.classList.contains('error')) {
+        errorContainer.innerText = "";
         form.classList.remove('error');
     }
 
