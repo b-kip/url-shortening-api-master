@@ -1,5 +1,5 @@
-import logo from '../../assets/images/logo.svg';
 import hamburger from '../../assets/images/icon-hamburger.svg';
+import Logo from '../Logo';
 
 export default function Navigation() {
   return (
@@ -7,9 +7,7 @@ export default function Navigation() {
       <div className="container">
         <nav className="navbar">
           <div className="navbar-top">
-            <a href="/" className="logo">
-              <img src={logo} alt="shortly logo" />
-            </a>
+            <Logo />
             <button className="hamburger" id="js-hamburger-button">
               <img src={hamburger} alt="harmburger icon" />
             </button>
