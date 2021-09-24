@@ -1,6 +1,5 @@
 import React from 'react';
 
-// import logoWhite from '../../assets/images/logo-white.svg';
 import Logo from '../Logo';
 import FooterLinks from './FooterLinks';
 import FooterSocialLinks from './FooterSocialLinks';
