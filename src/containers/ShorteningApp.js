@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ShorteningForm from './ShorteningForm';
 import ShortenedUrls from './ShortenedUrls';
+const API_URL = 'https://api.shrtco.de/v2/shorten?url=';
 
 // state
   // inputUrl
@@ -15,12 +16,16 @@ export default function ShorteningApp() {
     message: '',
     isError: false
   });
+  const [shortenedUrls, setShortenedUrls] = useState({
+    shortLinkList:[],
+    originalUrl: ""
+  });
 
   function handleUrlUpdate(e) {
     setUrl(e.target.value);
   }
 
-  function handleFormSubmission(e) {
+  async function handleFormSubmission(e) {
     e.preventDefault();
     let urlValidation = isUrlValid(url);
     console.log(urlValidation);
@@ -28,6 +33,9 @@ export default function ShorteningApp() {
     if(urlValidation.isValid) {
       // fetch data.
       console.log('Form submitted');
+      const data = await getUrl(url);
+      setShortenedUrls(data);
+      console.log(data);
     }else {
       console.log('url is invalid');
     }
@@ -48,7 +56,7 @@ export default function ShorteningApp() {
         error={urlError.isError}
         errorMessage={urlError.message}
       />
-      <ShortenedUrls />
+      <ShortenedUrls shortenedUrls={shortenedUrls}/>
     </>
   );
 }
@@ -76,4 +84,26 @@ function isUrlValid(url) {
     isValid: true,
     errorMesage: ""
   };
+}
+
+// get shortened url
+async function getUrl(url="https://www.frontendmentor.io") {
+    try {
+        const response = await fetch(`${API_URL}${url}`);
+        const data = await response.json();
+        console.log(data);
+        const linkData = {
+            originalUrl: data.result["original_link"],
+            shortLinkList: [
+                data.result["full_short_link"],
+                data.result["full_short_link2"],
+                data.result["full_short_link3"],
+            ]
+        }
+        localStorage.setItem('shortenedUrl', JSON.stringify(linkData));
+        // console.log(linkData);
+        return linkData;
+    } catch (e) {
+        console.log(e);
+    }
 }
