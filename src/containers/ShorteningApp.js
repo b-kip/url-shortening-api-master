@@ -1,14 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import usePersistentState from '../customHooks//usePersistentState';
 import ShorteningForm from './ShorteningForm';
 import ShortenedUrls from './ShortenedUrls';
 const API_URL = 'https://api.shrtco.de/v2/shorten?url=';
 
-// state
-  // inputUrl
-  // outputUrl
-
-// function
-  // fetchingUrl
 
 export default function ShorteningApp() {
   const [url, setUrl] = useState('');
@@ -16,43 +11,46 @@ export default function ShorteningApp() {
     message: '',
     isError: false
   });
-  const [shortenedUrls, setShortenedUrls] = useState({
-    shortLinkList:[],
-    originalUrl: ""
-  });
+  const [shortenedUrls, setShortenedUrls] = usePersistentState(
+    'shortenedUrl',
+    {
+      shortLinkList:[],
+      originalUrl: ""
+    }
+  );
 
-  function handleUrlUpdate(e) {
-    setUrl(e.target.value);
-  }
+  useEffect(() => {
+    // fetch data.
+    async function fetchUrls() {
+      if(url!=="") {
+        const data = await getUrl(url);
+        setShortenedUrls(data);
+        console.log(data);
+      }
+    }
+    fetchUrls();
+  }, [url, setShortenedUrls]);
 
-  async function handleFormSubmission(e) {
-    e.preventDefault();
-    let urlValidation = isUrlValid(url);
+  function handleSubmit(inputUrl) {
+    let urlValidation = isUrlValid(inputUrl);
     console.log(urlValidation);
-    
+
     if(urlValidation.isValid) {
-      // fetch data.
-      console.log('Form submitted');
-      const data = await getUrl(url);
-      setShortenedUrls(data);
-      console.log(data);
-    }else {
+      setUrl(inputUrl);
+    } else {
       console.log('url is invalid');
     }
-    
+
     setUrlError({
       isError: !urlValidation.isValid,
       message: urlValidation.errorMessage,
     });
   }
 
-
   return (
     <>
       <ShorteningForm 
-        url={url} 
-        onUrlUpdate={handleUrlUpdate} 
-        onFormSubmission={handleFormSubmission}
+        onFormSubmission={handleSubmit}
         error={urlError.isError}
         errorMessage={urlError.message}
       />
