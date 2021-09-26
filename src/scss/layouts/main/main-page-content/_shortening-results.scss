@@ -94,6 +94,12 @@
 				}
 			}
 			
+			.btn {
+				&:hover,
+				&:focus {
+					opacity: 1;
+				}
+			}
 		}
 	}
 }
