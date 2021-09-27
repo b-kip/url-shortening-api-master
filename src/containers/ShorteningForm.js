@@ -1,15 +1,16 @@
 import { useState } from 'react';
 
 export default function ShorteningForm({ 
-  onFormSubmission, error, errorMessage 
+  currentInput, onFormSubmission, error, errorMessage 
 }) {
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState(currentInput);
 
   function handleSubmit(e) {
     e.preventDefault();
     onFormSubmission(input);
     // setInput("");
   }
+  
   return(
     <form className={`shortening-form ${error && 'error' }`} onSubmit={handleSubmit}>
       <div className="input-container">

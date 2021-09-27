@@ -1,44 +1,49 @@
 import React, { useState, useEffect } from 'react';
-import usePersistentState from '../customHooks//usePersistentState';
+import useSemiPersistentState from '../customHooks/useSemiPersistentState';
 import ShorteningForm from './ShorteningForm';
 import ShortenedUrls from './ShortenedUrls';
 const API_URL = 'https://api.shrtco.de/v2/shorten?url=';
 
 
 export default function ShorteningApp() {
-  const [url, setUrl] = useState('');
   const [urlError, setUrlError] = useState({
     message: '',
     isError: false
   });
-  const [shortenedUrls, setShortenedUrls] = usePersistentState(
+  const [shortenedUrls, setShortenedUrls] = useSemiPersistentState(
     'shortenedUrl',
     {
       shortLinkList:[],
       originalUrl: ""
     }
   );
+  const [url, setUrl] = useState( shortenedUrls.originalUrl);
 
   useEffect(() => {
     // fetch data.
+    // console.log("Effect");
     async function fetchUrls() {
-      if(url!=="") {
+      if(url!=="" && url !== shortenedUrls.originalUrl) {
         const data = await getUrl(url);
         setShortenedUrls(data);
-        console.log(data);
+        // console.log(data);
       }
     }
     fetchUrls();
   }, [url, setShortenedUrls]);
 
   function handleSubmit(inputUrl) {
+    if( inputUrl === shortenedUrls.originalUrl) {
+      return;
+    }
+
     let urlValidation = isUrlValid(inputUrl);
-    console.log(urlValidation);
+    // console.log(urlValidation);
 
     if(urlValidation.isValid) {
       setUrl(inputUrl);
     } else {
-      console.log('url is invalid');
+      // console.log('url is invalid');
     }
 
     setUrlError({
@@ -47,9 +52,11 @@ export default function ShorteningApp() {
     });
   }
 
+  // console.log('Rendered');
   return (
     <>
       <ShorteningForm 
+        currentInput={url}
         onFormSubmission={handleSubmit}
         error={urlError.isError}
         errorMessage={urlError.message}
@@ -89,7 +96,7 @@ async function getUrl(url="https://www.frontendmentor.io") {
     try {
         const response = await fetch(`${API_URL}${url}`);
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
         const linkData = {
             originalUrl: data.result["original_link"],
             shortLinkList: [
