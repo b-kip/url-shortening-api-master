@@ -27,7 +27,7 @@ export default function ShorteningApp() {
       if(isMounted.current){
         const data = await getUrl(url);
         setShortenedUrls(data);
-        // console.log(data);
+        console.log(data);
       } else {
         isMounted.current = true;
       }
@@ -36,12 +36,18 @@ export default function ShorteningApp() {
   }, [url, setShortenedUrls]);
 
   function handleSubmit(inputUrl) {
+    let urlValidation = isUrlValid(inputUrl);
+    // console.log(urlValidation);
+
+    setUrlError({
+      isError: !urlValidation.isValid,
+      message: urlValidation.errorMessage,
+    });
+
     if( inputUrl === shortenedUrls.originalUrl) {
       return;
     }
 
-    let urlValidation = isUrlValid(inputUrl);
-    // console.log(urlValidation);
 
     if(urlValidation.isValid) {
       setUrl(inputUrl);
@@ -49,10 +55,6 @@ export default function ShorteningApp() {
       // console.log('url is invalid');
     }
 
-    setUrlError({
-      isError: !urlValidation.isValid,
-      message: urlValidation.errorMessage,
-    });
   }
 
   // console.log('Rendered');
