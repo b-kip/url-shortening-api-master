@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import useSemiPersistentState from '../customHooks/useSemiPersistentState';
 import ShorteningForm from './ShorteningForm';
 import ShortenedUrls from './ShortenedUrls';
@@ -18,15 +18,18 @@ export default function ShorteningApp() {
     }
   );
   const [url, setUrl] = useState( shortenedUrls.originalUrl);
+  const isMounted = useRef(false);
 
   useEffect(() => {
     // fetch data.
     // console.log("Effect");
     async function fetchUrls() {
-      if(url!=="" && url !== shortenedUrls.originalUrl) {
+      if(isMounted.current){
         const data = await getUrl(url);
         setShortenedUrls(data);
         // console.log(data);
+      } else {
+        isMounted.current = true;
       }
     }
     fetchUrls();
