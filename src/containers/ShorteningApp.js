@@ -27,7 +27,8 @@ export default function ShorteningApp() {
       if(isMounted.current){
         const data = await getUrl(url);
         setShortenedUrls(data);
-        console.log(data);
+        // console.log("Data fetched");
+        // console.log(data);
       } else {
         isMounted.current = true;
       }
@@ -47,7 +48,6 @@ export default function ShorteningApp() {
     if( inputUrl === shortenedUrls.originalUrl) {
       return;
     }
-
 
     if(urlValidation.isValid) {
       setUrl(inputUrl);

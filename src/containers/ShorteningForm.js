@@ -18,8 +18,8 @@ export default function ShorteningForm({
           className="url-input"
           value={input}
           name="url" 
-          type="text" 
-          placeholder="Shorten a link here..." 
+          type="url" 
+          placeholder="Shorten link here..http://example.com" 
           onChange={(e) => { setInput(e.target.value)}}
         />
         { error && <p className="error-message">{errorMessage}</p>}
