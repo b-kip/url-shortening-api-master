@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 export default function useSemiPersistentState(key, initialState) {
-  // console.log('Fetching persistent state...');
+  console.log('Fetching persistent state...');
 
   let data = localStorage.getItem(key);
   // console.log(data);
